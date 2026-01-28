@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 const PAGE_ACCESS_TOKEN = "EAAhcezkPqUsBQgEPMNIZAh6f0GCsj1HaB2FIRBnEvqiBD0ogf1fZCTlLOwYhEW0XC7G59AHeGlVFklDB04jf5WQ7wsLFajFA7NgJ1M01lyzSv0XBFc4QIeHSdvHZBIDoiqI6pdUTwmh1ZBmMhoWFV1Tat2YQyzLZBHGKQZCMD5TVtTi1LYBWVLu8mXZBN6hgOQWXnns62uMkwZDZD";
-const GEMINI_API_KEY = "AIzaSyA4J7J_mAUylbi5ps1Ijrp98hB6uIq6X-o";
+const GEMINI_API_KEY = "AIzaSyCiLyfOOK7JwoSwW9RnGHSVAuy8UgUeOy4";
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
