@@ -26,7 +26,7 @@
     "event": "^1.0.0",
     "express": "^4.18.2",
     "fca-deku": "^1.0.2",
-    "fca-disme": "^0.0.1-security",
+    "fca-project-orion": "latest"
     "fca-horizon-remake": "^0.0.1-security",
     "figlet": "^1.6.0",
     "form-data": "^4.0.0",
