@@ -36,23 +36,26 @@ async function askGemini(prompt) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
+        contents: [{ 
+          parts: [{ 
+            text: `أنت الآن "ناپولي بوت"، المساعد الذكي الرسمي لشركة Napoli Web. 
+            شخصيتك: محترف، مبدع، ودود جداً، وتستخدم الإيموجي. 
+            مهمتك: مساعدة العملاء في خدمات البرمجيات، تصميم المواقع، وتسويق السوشيال ميديا.
+            تعليمات: رد باللغة العربية بذكاء وتفصيل، وإذا سألك أحد عن هويتك قل له أنك ذكاء اصطناعي مطور بواسطة Napoli Web.
+            سؤال المستخدم هو: ${prompt}` 
+          }] 
+        }]
       })
     });
 
     const data = await response.json();
     
-    // سطر لمراقبة المشكلة في Vercel Logs
-    console.log("Gemini Response:", JSON.stringify(data));
-
     if (data.candidates && data.candidates[0].content) {
       return data.candidates[0].content.parts[0].text;
-    } else {
-      return "ممم، لم أجد إجابة مناسبة حالياً. جرب سؤالاً آخر!";
     }
+    return "أهلاً بك! أنا هنا لمساعدتك، هل يمكنك إعادة صياغة سؤالك؟";
   } catch (err) {
-    console.error("Gemini Error:", err);
-    return "عذراً، حدث خطأ فني في الاتصال بذكائي الاصطناعي.";
+    return "عذراً يا صديقي، يبدو أن هناك ضغطاً على أنظمتي حالياً. سأعود للعمل فوراً!";
   }
 }
 
