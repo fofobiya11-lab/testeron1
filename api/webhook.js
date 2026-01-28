@@ -43,5 +43,4 @@ async function sendReply(psid, text) {
     console.log("Facebook Response:", result);
   } catch (err) {
     console.error("Fetch Error:", err);
-  }
-}
+  } 
