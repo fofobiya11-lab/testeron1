@@ -36,13 +36,23 @@ async function askGemini(prompt) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: `أنت مساعد ذكي لصفحة Napoli Web. رد باختصار وذكاء وبلهجة ودودة: ${prompt}` }] }]
+        contents: [{ parts: [{ text: prompt }] }]
       })
     });
+
     const data = await response.json();
-    return data.candidates[0].content.parts[0].text;
+    
+    // سطر لمراقبة المشكلة في Vercel Logs
+    console.log("Gemini Response:", JSON.stringify(data));
+
+    if (data.candidates && data.candidates[0].content) {
+      return data.candidates[0].content.parts[0].text;
+    } else {
+      return "ممم، لم أجد إجابة مناسبة حالياً. جرب سؤالاً آخر!";
+    }
   } catch (err) {
-    return "عذراً، عقلي مشغول قليلاً الآن. حاول لاحقاً!";
+    console.error("Gemini Error:", err);
+    return "عذراً، حدث خطأ فني في الاتصال بذكائي الاصطناعي.";
   }
 }
 
